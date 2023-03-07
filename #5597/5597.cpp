@@ -19,6 +19,10 @@ int main(void)
 			++cnt;
 		}
 		else if (list [i] == 0)
+		{
 			std::cout << i;
+			break ;
+		}
 	}
+	return (0);
 }
