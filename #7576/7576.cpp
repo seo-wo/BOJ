@@ -29,7 +29,7 @@ int main(void){
 	}
 
 	//bfs
-	int x(0), y(0);
+	int x(0), y(0), new_tomato(0), temp_done(done);
 	while (!q.empty()){
 		std::pair<int, int> cur = q.front();
 		q.pop();
@@ -43,18 +43,17 @@ int main(void){
 			box[x][y] = 1;
 			check[x][y] = true;
 			++done;
+			++new_tomato;
 			q.push(std::make_pair(x, y));
 		}
-	}
-	// check
-	std::cout << "\n=====================\n";
-	for (int i = 0; i < height; ++i){
-		for (int j = 0; j < width; ++j){
-			std::cout << box[i][j] << ' ';
+		--temp_done;
+		if (temp_done == 0){
+			temp_done = new_tomato;
+			new_tomato = 0;
+			++day;
 		}
-		std::cout << '\n';
 	}
-
+	--day;
 	// ans
 	if (total != done)
 		std::cout << -1;
