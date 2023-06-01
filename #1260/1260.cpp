@@ -51,7 +51,7 @@ int main(void){
 		v[x].push_back(y);
 		v[y].push_back(x);
 	}
-	for (int i = 1; i < N; ++i)
+	for (int i = 1; i <= N; ++i)
 		std::sort(v[i].begin(), v[i].end());
 	dfs(V);
 	std::cout << '\n';
